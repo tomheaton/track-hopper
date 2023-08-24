@@ -79,6 +79,16 @@ function Popup() {
     });
   }, []);
 
+  function isCurrentService(key: keyof typeof SERVICES) {
+    if (!currentUrl) {
+      return false;
+    }
+
+    const currentDomain = new URL(currentUrl).hostname.replace("www.", "");
+
+    return SERVICES[key].domain === currentDomain;
+  }
+
   function changeStreamingService(key: keyof typeof SERVICES) {
     const toService = SERVICES[key];
 
@@ -137,24 +147,48 @@ function Popup() {
   }
 
   return (
-    <>
+    <div
+      style={{
+        minWidth: "300px",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        borderRadius: "24px",
+      }}
+    >
       <h1>Track Hopper</h1>
-      <ul>
-        <li>Current URL: {currentUrl}</li>
-        <li>Current Time: {new Date().toLocaleTimeString()}</li>
-      </ul>
-      <div style={{ display: "flex" }}>
+      <p>Select a streaming service to hop to...</p>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-evenly",
+          width: "100%",
+        }}
+      >
         {Object.keys(SERVICES).map((key) => (
           <button
             key={key}
             onClick={() => changeStreamingService(key as keyof typeof SERVICES)}
-            style={{ marginRight: "10px" }}
+            style={{
+              backgroundColor: "#00BCD4",
+              fontWeight: "bold",
+              color: "white",
+              padding: "10px 20px",
+              borderRadius: "5px",
+              border: "none",
+              cursor: isCurrentService(key as keyof typeof SERVICES)
+                ? "not-allowed"
+                : "pointer",
+              opacity: isCurrentService(key as keyof typeof SERVICES) ? 0.5 : 1,
+            }}
+            disabled={isCurrentService(key as keyof typeof SERVICES)}
           >
             {SERVICES[key as keyof typeof SERVICES].label}
           </button>
         ))}
       </div>
-    </>
+    </div>
   );
 }
 

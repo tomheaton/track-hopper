@@ -10,7 +10,7 @@ Hop between music streaming services.
 
 ## Development
 
-Install dependencies:
+Install the dependencies:
 
 ```bash
 pnpm install
@@ -22,6 +22,6 @@ Build the extension:
 pnpm build
 ```
 
-Run the extension:
+Load the extension:
 
 Go to [`chrome://extensions/`](chrome://extensions/), enable `Developer mode`, click `Load unpacked`, and select the `dist` folder.
