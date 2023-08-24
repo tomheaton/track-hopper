@@ -1,0 +1,34 @@
+{
+  "name": "track-hopper",
+  "description": "track-hopper",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": "tomheaton <tom@tomheaton.dev> (https://tomheaton.dev)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tomheaton/track-hopper"
+  },
+  "main": "./index.js",
+  "scripts": {
+    "dev": "webpack --config ./webpack/webpack.dev.js --watch",
+    "build": "webpack --config ./webpack/webpack.prod.js",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/chrome": "0.0.158",
+    "@types/react": "^18.2.21",
+    "@types/react-dom": "^18.2.7",
+    "copy-webpack-plugin": "^9.1.0",
+    "glob": "^7.2.3",
+    "prettier": "^2.8.8",
+    "ts-loader": "^8.4.0",
+    "typescript": "^5.2.2",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^4.10.0",
+    "webpack-merge": "^5.9.0"
+  }
+}

@@ -1,0 +1,12 @@
+# IDE
+.vscode
+.idea
+
+# DEPENDENCIES
+node_modules
+
+# BUILD
+dist
+
+# ENV
+env
