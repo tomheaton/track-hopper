@@ -65,7 +65,7 @@ const SERVICES = {
   appleMusic: {
     key: "appleMusic",
     domain: "music.apple.com",
-    link: "https://music.apple.com/",
+    link: "https://music.apple.com/us/",
     label: "Apple Music",
   },
 } as const;
@@ -109,7 +109,7 @@ function Popup() {
     }
 
     if (fromService.key === "appleMusic") {
-      const search = currentUrl?.split("/search?term=")[1];
+      const search = new URL(currentUrl).searchParams.get("term");
 
       if (!search) {
         chrome.tabs.create({ url: toService.link });
@@ -117,8 +117,7 @@ function Popup() {
       }
 
       if (toService.key === "appleMusic") {
-        const url = new URL("/search", toService.link);
-        url.searchParams.append("term", search);
+        const url = new URL(`/search?term=${search}`, toService.link);
         chrome.tabs.create({ url: url.toString() });
         return;
       }
@@ -136,8 +135,7 @@ function Popup() {
     }
 
     if (toService.key === "appleMusic") {
-      const url = new URL("/search", toService.link);
-      url.searchParams.append("term", search);
+      const url = new URL(`/search?term=${search}`, toService.link);
       chrome.tabs.create({ url: url.toString() });
       return;
     }

@@ -5,7 +5,7 @@ Hop between music streaming services.
 ## Notes
 
 - Only works for search pages (other pages are in the works).
-- Hopping to Apple Music will default to the US region.
+- Hopping to Apple Music will default to the US region to prevent search param issues (this will be fixed in the future).
 - Regions where service domains are unique have not been tested.
 
 ## Development
