@@ -11,3 +11,6 @@ dist.zip
 
 # ENV
 env
+
+# OS
+.DS_Store
