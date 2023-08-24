@@ -5,14 +5,14 @@ type Options = {
   showSpotify: boolean;
   showDeezer: boolean;
   showAppleMusic: boolean;
-  showYouTube: boolean;
+  // showYouTube: boolean;
 };
 
 const DEFAULT_OPTIONS: Options = {
   showSpotify: true,
   showDeezer: true,
   showAppleMusic: true,
-  showYouTube: true,
+  // showYouTube: true,
 };
 
 function Options() {

@@ -1,6 +1,6 @@
 {
   "name": "track-hopper",
-  "description": "track-hopper",
+  "description": "Hop between music streaming services.",
   "version": "1.0.0",
   "license": "MIT",
   "author": "tomheaton <tom@tomheaton.dev> (https://tomheaton.dev)",
